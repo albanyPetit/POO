@@ -21,16 +21,13 @@ Lavarropa class >> crear: unPrecio peso: unPeso letra: unaLetra [
 ]
 
 { #category : #propiasDelTipo }
-Lavarropa >> calcularValor [
-	|total|
-	total := super calcularValor.
-	(capacidadCarga > 30) ifTrue: [ total := total +350 ].
-	^total .
+Lavarropa >> calcularAdicional: final [
+	(capacidadCarga > 30) ifTrue: [ ^350 ] ifFalse: [ ^0 ].
 ]
 
 { #category : #inicializadores }
 Lavarropa >> inicializar [
-	capacidadCarga := 5.
+	capacidadCarga := 35.
 	tipoCarga := 'superior'.
 	sistemaLavado := 'europeo'.
 ]

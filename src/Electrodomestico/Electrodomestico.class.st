@@ -39,9 +39,16 @@ Electrodomestico class >> obtenerAdiconalPeso: unPeso [
 ]
 
 { #category : #propiasDelTipo }
+Electrodomestico >> calcularAdicional: final [
+	^0.
+]
+
+{ #category : #propiasDelTipo }
 Electrodomestico >> calcularValor [
 	|resp|
 	resp := precioBase + (Electrodomestico obtenerAdiconalPeso: peso) + (Electrodomestico obtenerAdicionalConsumo: consumo).
+	resp := resp + (self calcularAdicional: resp).
+	
 	^resp.
 ]
 

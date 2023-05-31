@@ -22,12 +22,12 @@ Televisor class >> crear: unPrecio peso: unPeso letra: unaLetra [
 ]
 
 { #category : #propiasDelTipo }
-Televisor >> calcularValor [
-	|total|
-	total := super calcularValor .
-	(hdmi >1) ifTrue: [ total := total + (hdmi * 100) ].
-	(tamanioPantalla > 46) ifTrue: [ total := total + (total*0.3) ].
-	^total.
+Televisor >> calcularAdicional: resp [
+	|adicional|
+	adicional := 0.
+	(hdmi >1) ifTrue:[adicional := hdmi * 100].
+	(tamanioPantalla > 46) ifTrue: [ adicional := adicional + (resp *0.3) ].
+	^adicional .
 ]
 
 { #category : #inicializadores }
